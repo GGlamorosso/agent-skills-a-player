@@ -85,10 +85,19 @@ agent-skills-a-player/
 │   ├── conversion-copy-design/
 │   └── ontological-reasoning/
 └── scripts/
-    └── install.sh
+    ├── install.sh
+    └── validate.py
 ```
 
 Chaque dossier de skill reste volontairement minimal : `SKILL.md`, `agents/openai.yaml`, puis uniquement les `references/` ou `scripts/` nécessaires à son exécution.
+
+Valider tout le dépôt localement :
+
+```bash
+python3 scripts/validate.py
+```
+
+La même validation tourne automatiquement dans GitHub Actions à chaque push et pull request.
 
 ## Principes de qualité
 
