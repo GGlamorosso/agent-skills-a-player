@@ -1,6 +1,6 @@
 ---
 name: conversion-copy-design
-description: Design + copywriting orienté conversion pour pages produit, landing pages et sections marketing (Shopify ou autre). Empêche le rendu "slop" IA mou/fade/générique (gradients violets par défaut, cards flottantes sans contraste, copy vague type "Découvrez notre produit incroyable"). Utilise ce skill CHAQUE FOIS que l'utilisateur demande de créer, générer, redesigner, améliorer, corriger, "rendre plus beau", ou refaire une landing page, une page produit, ou une section de page (hero, testimonials, FAQ, pricing, etc.) — même si le mot "conversion" ou "copywriting" n'est pas prononcé explicitement. S'active aussi pour toute review/critique d'un design ou d'un copy existant.
+description: Design + copywriting orienté conversion pour pages produit, landing pages et sections marketing (Shopify ou autre). Empêche le rendu "slop" IA mou/fade/générique et, pour toute implémentation Shopify, impose de chercher dans la banque shopify-section-kit avant d'écrire du Liquid. Utilise ce skill CHAQUE FOIS que l'utilisateur demande de créer, générer, redesigner, améliorer, corriger, "rendre plus beau", ou refaire une landing page, une page produit, ou une section de page (hero, testimonials, FAQ, pricing, etc.) — même si le mot "conversion" ou "copywriting" n'est pas prononcé explicitement. S'active aussi pour toute review/critique d'un design ou d'un copy existant.
 ---
 
 # Conversion Copy & Design
@@ -41,7 +41,24 @@ Les deux axes se combinent — ce n'est jamais un choix binaire A ou B. Exemple 
 
 **Règle de rythme, quel que soit le mix choisi :** une page qui reste visuellement plate du haut en bas (tout en blanc, toutes les cards identiques) endort l'attention. Alterne les fonds de section, casse le pattern juste avant un point clé (ex : fond sombre pour la section pain points, puis retour au clair pour la solution), utilise des tailles de titre contrastées pour créer une hiérarchie claire. La rupture de rythme se fait par le fond de section et la taille de titre — pas en ajoutant de la rondeur ou du glossy.
 
-## 4. Anti-patterns slop à bannir PAR DÉFAUT (pas seulement "sauf demande contraire")
+## 4. Shopify : banque de sections obligatoire avant le code
+
+Pour toute tâche qui crée ou modifie du Liquid, une section Shopify, un template ou une page
+issue d'un thème, lire puis exécuter `references/shopify-section-kit-workflow.md` **avant la
+première ligne de code**. Cette étape est bloquante, même si l'utilisateur ne mentionne pas le
+kit.
+
+Le minimum non négociable : définir le job unique de chaque section, interroger le catalogue,
+inspecter les variantes et recettes candidates, annoncer la décision de réutilisation, puis
+adapter une section existante avec les tokens et la couche Message. Écrire from scratch n'est
+autorisé qu'après avoir prouvé l'absence de pattern compatible et suivi le protocole « nouvelle
+variante » avec arbitrage humain.
+
+La banque décide de la structure réutilisable et de ses contraintes techniques. Elle ne remplace
+ni la recherche avatar, ni le copy, ni la preuve produit : ceux-ci pilotent le choix et le binding
+de la section, sans être inventés par le composant.
+
+## 5. Anti-patterns slop à bannir PAR DÉFAUT (pas seulement "sauf demande contraire")
 
 C'est la section la plus importante de ce skill. Le piège numéro un est de reproduire un style "IA new-gen" par réflexe — coins ultra arrondis partout, CTA en pilule flottante, glassmorphism, mockups 3D glossy — même quand l'avatar (souvent 45+, marché US, cold traffic Search) lit ce style comme "app jeune/pas sérieux" plutôt que comme moderne. Le radius généreux et les effets glossy ne sont PAS un défaut neutre : ce sont des choix qui doivent être justifiés par l'axe 2 ci-dessus, jamais posés par habitude.
 
@@ -62,15 +79,15 @@ Sauf preuve que l'avatar est digital-native/jeune, n'utilise jamais :
 - Une page plate du haut en bas, sans variation de fond ni de respiration
 - Bullets fragmentés de 2-3 mots quand l'avatar (axe 2, web classique) attend une phrase complète qui explique
 
-## 5. Patterns récurrents validés sur des sites réels
+## 6. Patterns récurrents validés sur des sites réels
 
-Avant de dessiner une section, vérifie-la contre `references/winning-patterns-us-clarity.md` — les 10 points qui reviennent systématiquement sur un échantillon de 5 marques US gagnantes en cold traffic (tourne-disques, compléments alimentaires, robot laveur de vitres), auditées par capture d'écran réelle, pas inventées. C'est la preuve empirique derrière les règles anti-slop de la section 4 — utile quand tu dois trancher un cas limite (ex : un CTA en pilule est-il vraiment interdit ? le fichier explique la nuance).
+Avant de dessiner une section, vérifie-la contre `references/winning-patterns-us-clarity.md` — les 10 points qui reviennent systématiquement sur un échantillon de 5 marques US gagnantes en cold traffic (tourne-disques, compléments alimentaires, robot laveur de vitres), auditées par capture d'écran réelle, pas inventées. C'est la preuve empirique derrière les règles anti-slop de la section 5 — utile quand tu dois trancher un cas limite (ex : un CTA en pilule est-il vraiment interdit ? le fichier explique la nuance).
 
-## 6. Patterns HTML/Liquid prêts à l'emploi
+## 7. Patterns HTML/Liquid prêts à l'emploi
 
-Pour livrer directement du code plutôt que de la prose de design, `references/html-liquid-clarity-patterns.md` contient des gabarits HTML/CSS (hero, bandeau réassurance, bullets USP, tableau comparatif, FAQ accordéon, bloc add-to-cart PDP) déjà conformes aux règles anti-slop ci-dessus, avec des notes pour les convertir en Liquid Shopify. Charge ce fichier dès que la demande porte sur du code de section, pas seulement une description de design.
+Pour une implémentation non-Shopify, `references/html-liquid-clarity-patterns.md` contient des gabarits HTML/CSS (hero, bandeau réassurance, bullets USP, tableau comparatif, FAQ accordéon, bloc add-to-cart PDP) conformes aux règles anti-slop ci-dessus. Sur Shopify, ces gabarits ne remplacent jamais la banque : suivre d'abord `references/shopify-section-kit-workflow.md`, puis utiliser ce fichier uniquement pour combler un détail absent sans recréer une architecture déjà disponible.
 
-## 7. Checklist avant de livrer
+## 8. Checklist avant de livrer
 
 - L'avatar est identifiable dès le premier titre lu ?
 - Le premier headline vend-il un bénéfice/une issue rêvée, pas une feature ?
@@ -78,6 +95,8 @@ Pour livrer directement du code plutôt que de la prose de design, `references/h
 - Le parcours (comprendre → se décider → acheter → utiliser) semble-t-il évident et sans effort ?
 - Y a-t-il au moins une rupture de rythme visuel (fond, taille, contraste) dans la page ?
 - **Le rayon des coins, la densité de texte et le classicisme de la nav correspondent-ils vraiment à l'axe 2 (digital-native vs web classique) de cet avatar précis, ou ai-je posé un style "new-gen" par défaut ?**
-- Est-ce qu'un des anti-patterns de la section 4 s'est glissé dedans ?
+- Est-ce qu'un des anti-patterns de la section 5 s'est glissé dedans ?
+- Si c'est Shopify : la décision de banque cite-t-elle les requêtes, candidats, section retenue et adaptations ?
+- Si c'est Shopify : `check.py --theme` est-il vert, et la QA desktop/mobile a-t-elle été faite ou explicitement signalée comme dette ?
 
 Pour des exemples détaillés de structure de section (hero, pain points, étapes, nav, grille produit, réassurance) tirés de deux références validées et vérifiées sur des sites réels, voir `references/case-studies.md`.
