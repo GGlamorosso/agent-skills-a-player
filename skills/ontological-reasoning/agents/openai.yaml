@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ontological Reasoning"
+  short_description: "Raisonnement causal, stratégique et falsifiable"
+  default_prompt: "Utilise $ontological-reasoning pour dériver une réponse causale et testable à cette question stratégique."

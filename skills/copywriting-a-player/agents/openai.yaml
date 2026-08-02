@@ -1,0 +1,4 @@
+interface:
+  display_name: "Copywriting A-Player"
+  short_description: "Copywriting de vente fondé sur l’avatar"
+  default_prompt: "Utilise $copywriting-a-player pour rechercher l’avatar puis écrire ou réécrire ce texte de vente en entier."

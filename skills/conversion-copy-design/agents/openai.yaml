@@ -1,0 +1,4 @@
+interface:
+  display_name: "Conversion Copy & Design"
+  short_description: "Pages claires, crédibles et orientées conversion"
+  default_prompt: "Utilise $conversion-copy-design pour auditer puis améliorer le copy et le design de cette page pour la conversion."

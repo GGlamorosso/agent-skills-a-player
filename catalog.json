@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "repository": "GGlamorosso/agent-skills-a-player",
+  "skills": [
+    {
+      "name": "pixel",
+      "path": "skills/pixel",
+      "summary": "Builds seven conversion-led e-commerce carousel master prompts."
+    },
+    {
+      "name": "copywriting-a-player",
+      "path": "skills/copywriting-a-player",
+      "summary": "Researches the avatar, diagnoses the market, and writes complete sales copy."
+    },
+    {
+      "name": "conversion-copy-design",
+      "path": "skills/conversion-copy-design",
+      "summary": "Designs and audits conversion-focused pages without generic AI aesthetics."
+    },
+    {
+      "name": "ontological-reasoning",
+      "path": "skills/ontological-reasoning",
+      "summary": "Derives strategic and causal answers from evidence, mechanisms, and rival models."
+    }
+  ]
+}

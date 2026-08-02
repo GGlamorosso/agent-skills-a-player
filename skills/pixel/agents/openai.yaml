@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pixel — Carrousel Produit"
+  short_description: "Carrousels produit qui vendent en 7 images"
+  default_prompt: "Utilise $pixel pour créer les 7 master prompts du carrousel de ce produit à partir des photos et spécifications réelles."
